@@ -14,10 +14,16 @@ export default function Folder({ explorer }) {
 
   return (
     <div>
-      <button onClick={() => setIsFolded(!isFolded)}>
-        {explorer.name}({isFolded ? "+" : "-"})
+      <button
+        className="text-lg flex items-center gap-1 p-1"
+        onClick={() => setIsFolded(!isFolded)}
+      >
+        <span className="material-symbols-outlined text-amber-400">
+          folder{!isFolded ? "_open" : ""}
+        </span>
+        {explorer.name}
       </button>
-      {isFolded ? <></> : <ul>{folderItems}</ul>}
+      {isFolded ? <></> : <ul className="ml-4 border-l-2">{folderItems}</ul>}
     </div>
   );
 }
